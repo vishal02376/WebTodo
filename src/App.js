@@ -1,25 +1,79 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Nav from './Component/Nav'; 
+import Faq from './Component/Faq';
+import Footer from './Component/Footer';
 
 function App() {
+  const [todoList, setTodoList] = useState([]);
+
+  let saveTolist = (e) => {
+    e.preventDefault();
+
+    let toName = e.target.toName.value;
+
+    if (!todoList.includes(toName)) {
+      let Finaltodo = [...todoList, toName];
+      setTodoList(Finaltodo);
+    } else {
+      alert("Alert: To-do already exists");
+    }
+  };
+
+  let list = todoList.map((value, i) => {
+    let alllist = { value, i, todoList, setTodoList };
+    return (
+      <Updatetodo all={alllist} key={i}/>
+    );
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+
+      <h1 className="Heading">My Task</h1>
+
+      <form onSubmit={saveTolist}>
+        <input placeholder="Add task..." type="text" name="toName" />
+        <button type="submit">Save</button>
+      </form>
+
+      <div className="outerDiv">
+        <ul>
+          {list}
+        </ul>
+      </div>
+
+      <Faq/>
+
+      <Footer />
+
+    </>
   );
 }
 
 export default App;
+
+function Updatetodo({ all }) {
+  let [status, Setstatus] = useState(false);
+
+  let deleteRow = () => {
+    let finaldata = all.todoList.filter((v, i) => i !== all.i);
+    all.setTodoList(finaldata);
+  };
+
+  let Checkstatus = () => {
+    Setstatus(!status);
+  };
+
+  return (
+    <>
+      <li
+        className={status ? 'complete' : ''}
+        onClick={Checkstatus}
+      >
+        {all.i + 1} {all.value} <span onClick={deleteRow}>&times;</span>
+      </li>
+    </>
+  );
+}

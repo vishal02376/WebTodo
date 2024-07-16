@@ -1,0 +1,26 @@
+.footer {
+    background-color: #bd1b6754;
+    text-align: center;
+    height: 40px;
+
+    align-items: center;
+   
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .footer {
+       margin-top: 110px;
+      }
+    }
+
+    /* https://github.com/vishalk025/To-Do-List.git   add*/
+  
+  .footer p {
+    margin-top: 20px;
+    align-items: center;
+    position: relative;  
+    top: 10px;
+  }
+  

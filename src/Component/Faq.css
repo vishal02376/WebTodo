@@ -1,0 +1,48 @@
+.heading{
+    color: red;
+    text-align: center;
+}
+@media (max-width: 768px) {
+   
+    .heading{
+       font-size: 20px;
+    }
+}
+
+.OuterDiv{
+    width: 1320px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+   
+    .OuterDiv{
+        width: 96%;
+    }
+}
+.innerDiv{
+    border: 1px solid blue;
+    margin-bottom: 20px;
+}
+.innerDiv h2{
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(1, 1, 22);
+    color: white;
+    cursor: pointer;
+
+}
+.innerDiv p{
+    height: 0px;
+    transform: scaleY(0);
+    padding: 0px;
+    margin: 0px;
+    transition: 0.5s;
+}
+
+.active{
+    height: auto !important;
+    transform: scaleX(1)!important;
+    padding: 10px !important;
+}
