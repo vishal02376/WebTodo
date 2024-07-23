@@ -3,7 +3,7 @@
     padding: 0px;
 }
 .maiDiv {
-    background-color: #f0e8eb;
+    background-color: #5184e3;
     padding: 10px; 
     display: flex;
     justify-content: space-between;
@@ -30,8 +30,11 @@
     font-size: 28px; 
     padding-left: 13px;
     align-items: center;
-    color: red;
+    color: yellow;
     
+  }
+  li{
+    color: white;
   }
 
   
